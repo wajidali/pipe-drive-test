@@ -32,8 +32,8 @@ module.exports = function upload(req, res) {
 
 
 // Async function because it reports back the file upload process imediatly after upload.
-// Better is that user should get the result if file finishes processesing mode as well. 
-// ***BETTER FUNCTION BELOW*** Keept original for reference. 
+// Better is that user should get the result if file finishes processesing as well. 
+// ***BETTER FUNCTION BELOW*** Kept original for reference. 
 async function csvDataInsert(readStream) {
   // Returning promise since csv function is not async.   
   return new Promise ((resolve, reject) => {

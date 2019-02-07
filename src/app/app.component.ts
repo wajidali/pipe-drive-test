@@ -36,6 +36,7 @@ export class AppComponent {
     };
   }
 
+  // Loading data to fill in the datatable
   loadData(){    
     if(this.searchId !== 0){
     let searchParams = {
@@ -47,11 +48,13 @@ export class AppComponent {
   }
 }
 
+// Changing the temporary variable which holds the file to send. 
   onFileChanged(event) {
     this.selectedFile = event.target.files[0]
   }
 
-  //TODO Some probelem with the toaster, only show with the mouse hover. 
+  // TODO Some probelem with the toaster, only show with the mouse hover.
+  // Uploading the file  
   uploadFile() {
     if(this.selectedFile == undefined){
       //this.notifierService.notify( 'Fail', 'You are awesome! I mean it!' );
@@ -66,11 +69,13 @@ export class AppComponent {
       this.progress = value;
     })
   }  
- 
+
+ // Open delete modal 
   openDeleteModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, {class: 'modal-sm'});
   }
  
+  // Confirm delete all data
   confirm(): void {
     // This deletes all data
     this.appService.deleteData().subscribe(deleted => {
@@ -79,6 +84,7 @@ export class AppComponent {
     });    
   }
  
+  // Decline delete data
   decline(): void {    
     this.modalRef.hide();
   }
