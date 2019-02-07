@@ -1,0 +1,113 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Angular, NodeJS, Swagger, Mongo DB, Docker, Pipedrive wajid Test Task Application API",
+      "description": "This page shows the apis for this app",
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "host": "localhost:8080",
+    "basePath": "/api",
+    "tags": [
+      {
+        "name": "Test Data API",
+        "description": "API for the Test Data"
+      }
+    ],
+    "schemes": [
+      "http"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "paths": {
+      "/import": {
+        "post": {
+        "tags": [
+            "Import"
+            ],
+          "summary": "Uploads a file.",
+          "consumes": [
+                "multipart/form-data"
+          ],
+          "description": "Import CSV file, only valid CSV shoule be uploaded",
+          "parameters": [
+            {
+              "name": "upfile",    
+              "in": "formData",          
+              "description": "The file to upload",
+              "type": "file",
+              "x-mimetype": "text/csv"    
+            }
+          ]        
+        }
+        
+      },
+      "/search": {        
+        "post": {
+          "tags": [
+            "Search"
+          ],
+          "summary": "Get testData with given ID",
+          "description": "Get test data with Id",
+          "parameters": [
+            {
+              "name": "Query",
+              "in": "body",
+              "description": "Query only accepts Id at the moment so try sending query = 1",
+              "schema": {
+                "$ref": "#/definitions/Query"
+              }
+            }
+        ],
+          "responses": {
+            "200": {
+              "description": "Data is found",
+              "schema": {
+                "$ref": "#/definitions/TestData"
+              }
+            }
+          }
+        }         
+      }
+    },
+    "definitions": {
+      "TestData": {        
+        "properties": {
+          "id": {
+            "type": "string",
+            "uniqueItems": true
+          },
+          "name": {
+            "type": "string"            
+          },
+          "age": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "team": {
+            "type": "string"
+          }
+        }
+      },
+      "TestDatas": {
+        "type": "array",
+        "$ref": "#/definitions/TestData"
+      }, 
+      "Query": {        
+        "properties": {
+          "query": {
+            "type": "string"            
+          }
+        }
+      }
+    }
+  }
