@@ -30,14 +30,16 @@ module.exports = function upload(req, res) {
   form.parse(req);
 };
 
+
 // Async function because it reports back the file upload process imediatly after upload.
 // Better is that user should get the result if file finishes processesing mode as well. 
+// ***BETTER FUNCTION BELOW*** Keept original for reference. 
 async function csvDataInsert(readStream) {
   // Returning promise since csv function is not async.   
   return new Promise ((resolve, reject) => {
     csv()
     .fromStream(readStream).subscribe(async function(jsonObj) {      
-      //BETTER FUNCTION BELOW. 
+      
       
       ///Adding to the database
       // var id, name, age, address, team = undefined;    
