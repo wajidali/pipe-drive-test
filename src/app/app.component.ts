@@ -2,7 +2,7 @@ import { Component, TemplateRef } from '@angular/core';
 import { AppService } from './app.service';
 import { ToastrService } from 'ngx-toastr';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-
+import { Subject } from 'rxjs';
 
 
 @Component({
@@ -26,10 +26,11 @@ export class AppComponent {
   modalRef: BsModalRef;
 
   dtOptions: DataTables.Settings = {};
+  
   testDatas: any;
   
 
-  ngOnInit(): void {
+  ngOnInit(): void {    
     this.dtOptions = {
       pagingType: 'full_numbers',
       searching: false   
@@ -43,7 +44,7 @@ export class AppComponent {
       query: this.searchId
     };
     this.appService.getDataBySearchParams(searchParams).subscribe(result=> {      
-      this.testDatas = result;      
+      this.testDatas = result;           
     })
   }
 }

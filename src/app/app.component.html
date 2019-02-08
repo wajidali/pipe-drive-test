@@ -1,7 +1,7 @@
 <!--
   Navigation
 -->
-<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+<!-- <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
   <button class="navbar-toggler navbar-toggler-right" type="button" aria-controls="appNavigation" [attr.aria-expanded]="!isCollapsed" aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -10,6 +10,35 @@
     <div class="navbar-nav mr-auto">
       <a class="nav-item nav-link" routerLink="" routerLinkActive="active">Home</a>                         
     </div>
+  </div>
+</nav> -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Pipe Drive Test Wajid</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="appNavigation" [attr.aria-expanded]="!isCollapsed" aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" [collapse]="!isCollapsed">
+      <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+              <a class="nav-link" href="javascript:void(0)">Home</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="javascript:void(0)">Placeholder</a>
+          </li>         
+      </ul>
+      <!-- <ul class="navbar-nav">
+          <li class="nav-item dropdown ml-auto">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown" (click)="show=!show">Dropdown</a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" [ngClass]="{show: show === true}">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+          </li>
+      </ul> -->
   </div>
 </nav>
 
@@ -86,7 +115,7 @@
   Footers
 -->
  <footer class="footer" >
-  <div class="d-flex justify-content-center"> Copy right © </div>
+  <div class="d-flex justify-content-center"> Copyright © </div>
 </footer>
 
 
